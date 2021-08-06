@@ -1,0 +1,61 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: http://dev.virtualearth.net/REST/v1/Routes/?key=AtCjopBxAAbWS_WTCM4guhVYYbUnnOWf_dei81KE9J19K6ro_VPYIlfmrP_wqB8V&wayPoint.1=12&wayPoint.2=24
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - dev.virtualearth.net
+  response:
+    status:
+      code: 404
+      message: Not Found
+    headers:
+      Cache-Control:
+      - no-cache
+      Transfer-Encoding:
+      - chunked
+      Content-Type:
+      - application/json; charset=utf-8
+      Server:
+      - Microsoft-IIS/10.0
+      X-Bm-Traceid:
+      - fdf0e8ee74ba411697245e3e29a2e839
+      X-Bm-Be-Elapsed:
+      - '125'
+      X-Msedge-Ref:
+      - 'Ref A: 89F9F9D6B16F4FB6BACB45D21E5DF3EF Ref B: DB3EDGE0913 Ref C: 2021-08-06T13:10:04Z|Ref
+        A: 2339F579C506489686E9285B94AF7023 Ref B: DB3EDGE0711 Ref C: 2021-08-06T13:10:04Z'
+      X-Bm-Fe-Elapsed:
+      - '157'
+      X-Bm-Srv:
+      - DU00000D59
+      X-Ms-Bm-Ws-Info:
+      - '0'
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Methods:
+      - POST, GET, OPTIONS
+      Access-Control-Allow-Headers:
+      - Content-Type,X-FD-Features,X-FD-FLIGHT,PreferAnonymous
+      X-Aspnet-Version:
+      - 4.0.30319
+      X-Powered-By:
+      - ASP.NET
+      Date:
+      - Fri, 06 Aug 2021 13:10:04 GMT
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJhdXRoZW50aWNhdGlvblJlc3VsdENvZGUiOiJWYWxpZENyZWRlbnRpYWxzIiwiYnJhbmRMb2dvVXJpIjoiaHR0cDpcL1wvZGV2LnZpcnR1YWxlYXJ0aC5uZXRcL0JyYW5kaW5nXC9sb2dvX3Bvd2VyZWRfYnkucG5nIiwiY29weXJpZ2h0IjoiQ29weXJpZ2h0IMKpIDIwMjEgTWljcm9zb2Z0IGFuZCBpdHMgc3VwcGxpZXJzLiBBbGwgcmlnaHRzIHJlc2VydmVkLiBUaGlzIEFQSSBjYW5ub3QgYmUgYWNjZXNzZWQgYW5kIHRoZSBjb250ZW50IGFuZCBhbnkgcmVzdWx0cyBtYXkgbm90IGJlIHVzZWQsIHJlcHJvZHVjZWQgb3IgdHJhbnNtaXR0ZWQgaW4gYW55IG1hbm5lciB3aXRob3V0IGV4cHJlc3Mgd3JpdHRlbiBwZXJtaXNzaW9uIGZyb20gTWljcm9zb2Z0IENvcnBvcmF0aW9uLiIsImVycm9yRGV0YWlscyI6WyJPbmUgb3IgbW9yZSBsb2NhdGlvbnMgc3BlY2lmaWVkIGluIHRoZSB3YXlwb2ludCBwYXJhbWV0ZXIgYXJlIGludmFsaWQgb3IgcmVxdWlyZSBtb3JlIGluZm9ybWF0aW9uLiIsIjEyIiwiMjQiXSwicmVzb3VyY2VTZXRzIjpbXSwic3RhdHVzQ29kZSI6NDA0LCJzdGF0dXNEZXNjcmlwdGlvbiI6Ik5vdCBGb3VuZCIsInRyYWNlSWQiOiJmZGYwZThlZTc0YmE0MTE2OTcyNDVlM2UyOWEyZTgzOXxEVTAwMDAwRDU5fDAuMC4wLjB8UmVmIEE6IDg5RjlGOUQ2QjE2RjRGQjZCQUNCNDVEMjFFNURGM0VGIFJlZiBCOiBEQjNFREdFMDkxMyBSZWYgQzogMjAyMS0wOC0wNlQxMzoxMDowNFp8UmVmIEE6IDIzMzlGNTc5QzUwNjQ4OTY4NkU5Mjg1Qjk0QUY3MDIzIFJlZiBCOiBEQjNFREdFMDcxMSBSZWYgQzogMjAyMS0wOC0wNlQxMzoxMDowNFoifQ==
+  recorded_at: Fri, 06 Aug 2021 13:10:04 GMT
+recorded_with: VCR 6.0.0
