@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=Krasnodar&key=Be6P6N3fT1hsuOHrOhuTixgSoYh63&origins=Moscow
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.distancematrix.ai
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Aug 2021 13:01:27 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=5ZCH7H0Bn2srNuzR3bVtPYdTLw%2F%2FJgmeUFaF3kLngdGHL9YCqlyB0mte%2BkQ0jEG90paNCHOPp%2BVf5gLrAPm0urHt1EGkEZlbZmO8vf%2B0bpHF1SmwmZRhB8lxQaCs5w143Nk%2FRd1Dto4%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 67a87427feebe6c0-EWR
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: '{"destination_addresses":["Krasnodar, Krasnodar Krai, Russia"],"origin_addresses":["Moscow,
+        Russia"],"rows":[{"elements":[{"distance":{"text":"1353.5 km","value":1353497},"duration":{"text":"15
+        hr 11 min","value":54661},"status":"OK"}]}],"status":"OK"}'
+  recorded_at: Fri, 06 Aug 2021 13:01:27 GMT
+recorded_with: VCR 6.0.0

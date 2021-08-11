@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.distancematrix.ai/maps/api/distancematrix/json?destinations=24&key=Be6P6N3fT1hsuOHrOhuTixgSoYh63&origins=12
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - "*/*"
+      User-Agent:
+      - Ruby
+      Host:
+      - api.distancematrix.ai
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Date:
+      - Fri, 06 Aug 2021 13:10:09 GMT
+      Content-Type:
+      - application/json
+      Transfer-Encoding:
+      - chunked
+      Connection:
+      - keep-alive
+      Access-Control-Allow-Origin:
+      - "*"
+      Access-Control-Allow-Credentials:
+      - 'true'
+      Cf-Cache-Status:
+      - DYNAMIC
+      Expect-Ct:
+      - max-age=604800, report-uri="https://report-uri.cloudflare.com/cdn-cgi/beacon/expect-ct"
+      Report-To:
+      - '{"endpoints":[{"url":"https:\/\/a.nel.cloudflare.com\/report\/v3?s=ZG6yfFYWpfkyvEQZWzL%2B4MHMezVEqX8WsJY1SW3NV%2BtMshtdL2I%2BFXPiC%2FVTf64KZP7JQITIGLeBLkgT06GcPfoD4KR6bbPMiUfFyFM7TEb7VkVQKzP8P8bUi1lnMSl%2FbBHQyae3K5c%3D"}],"group":"cf-nel","max_age":604800}'
+      Nel:
+      - '{"success_fraction":0,"report_to":"cf-nel","max_age":604800}'
+      Server:
+      - cloudflare
+      Cf-Ray:
+      - 67a880ebfd6c2bd6-FRA
+      Alt-Svc:
+      - h3-27=":443"; ma=86400, h3-28=":443"; ma=86400, h3-29=":443"; ma=86400, h3=":443";
+        ma=86400
+    body:
+      encoding: ASCII-8BIT
+      string: !binary |-
+        eyJkZXN0aW5hdGlvbl9hZGRyZXNzZXMiOlsiUHJvYWt0aXZhIDI0IEdlYsOkdWRlc2VydmljZSwgTHlvbmVyIFN0ci4gNjIsIDYwNTI4IEZyYW5rZnVydCBhbSBNYWluIl0sIm9yaWdpbl9hZGRyZXNzZXMiOlsiWnUgZGVuIDEyIEFwb3N0ZWxuLCBSb3NlbmJlcmdlcnN0cmHDn2UgMSwgNjAzMTMgRnJhbmtmdXJ0IGFtIE1haW4iXSwicm93cyI6W3siZWxlbWVudHMiOlt7ImRpc3RhbmNlIjp7InRleHQiOiI4Ljgga20iLCJ2YWx1ZSI6ODc5MH0sImR1cmF0aW9uIjp7InRleHQiOiIyMSBtaW4iLCJ2YWx1ZSI6MTI1M30sInN0YXR1cyI6Ik9LIn1dfV0sInN0YXR1cyI6Ik9LIn0=
+  recorded_at: Fri, 06 Aug 2021 13:10:09 GMT
+recorded_with: VCR 6.0.0
