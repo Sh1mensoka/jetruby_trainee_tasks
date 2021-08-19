@@ -6,7 +6,9 @@ class OrdersController < ApplicationController
   end
 
   def create
-    @order = Order.new(order_params.merge(OrderCreator.create_order(order_params, Api.find_by(status: 1)[:name])))
+    selected_api = Api.find_by(status: 1)[:name]
+    additional_params = OrderCreator.create_order(order_params, selected_api)
+    @order = Order.new(order_params.merge(additional_params))
     if @order.save
       redirect_to @order
     else
