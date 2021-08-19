@@ -6,9 +6,7 @@ class OrdersController < ApplicationController
   end
 
   def create
-    new_params = order_params
-    new_params = new_params.merge(OrderCreator.new.create_order(new_params, "MapboxCalculator"))
-    @order = Order.new(new_params)
+    @order = Order.new(order_params.merge(OrderCreator.create_order(order_params, Api.find_by(status: 1)[:name])))
     if @order.save
       redirect_to @order
     else

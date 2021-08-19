@@ -11,12 +11,12 @@ class DistanceMatrixCalculator
   end
 
   def calculate_distance
-    api_data = JSON.parse(File.read("#{File.dirname(__FILE__)}/api.json"))['DistanceMatrixCalculator']
+    api_data = JSON.parse(File.read("#{File.dirname(__FILE__)}/api.json"))["DistanceMatrixCalculator"]
 
-    JSON.parse(Net::HTTP.get(URI(format(api_data['distancematrix_uri'],
+    JSON.parse(Net::HTTP.get(URI(format(api_data["distancematrix_uri"],
                                         {dep_address: dep_address, 
                                          arr_address: arr_address, 
-                                         token: api_data['distancematrix_token']
+                                         token: api_data["distancematrix_token"]
                                         }
                                        ))))['rows'][0]['elements'][0]['distance']['value'] / 1000
   end
