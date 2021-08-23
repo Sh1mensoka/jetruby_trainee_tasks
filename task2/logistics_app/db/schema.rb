@@ -10,7 +10,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
+<<<<<<< HEAD
 ActiveRecord::Schema.define(version: 2021_08_19_065416) do
+=======
+ActiveRecord::Schema.define(version: 2021_08_23_113547) do
+>>>>>>> a7672a4... [TRELLO-1] Carrierwave integration
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +56,12 @@ ActiveRecord::Schema.define(version: 2021_08_19_065416) do
     t.decimal "price"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+<<<<<<< HEAD
+=======
+    t.string "avatar"
+    t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+>>>>>>> a7672a4... [TRELLO-1] Carrierwave integration
   end
 
 end
