@@ -1,0 +1,64 @@
+<h1>New Order</h1>
+
+<%= form_with model: @order do |form| %>
+
+  <div>
+    Name<br>
+    <%= form.text_field :name %>
+  </div>
+
+  <div>
+    Second name<br>
+    <%= form.text_area :s_name %>
+  </div>
+
+  <div>
+    Patronymic<br>
+    <%= form.text_field :patronymic %>
+  </div>
+
+  <div>
+    Phone<br>
+    <%= form.text_area :phone %>
+  </div>
+
+  <div>
+    E-mail<br>
+    <%= form.text_field :email %>
+  </div>
+
+  <div>
+    Weight<br>
+    <%= form.text_area :weight %>
+  </div>
+
+  <div>
+    Length<br>
+    <%= form.text_field :length %>
+  </div>
+
+  <div>
+    Width<br>
+    <%= form.text_area :width %>
+  </div>
+
+  <div>
+    Height<br>
+    <%= form.text_field :height %>
+  </div>
+
+  <div>
+    Departure address<br>
+    <%= form.text_area :dep_address %>
+  </div>
+
+  <div>
+    Arrival address<br>
+    <%= form.text_area :arr_address %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+
+<% end %>
