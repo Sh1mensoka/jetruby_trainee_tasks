@@ -1,0 +1,44 @@
+<h1>Your orders</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Second name</th>
+    <th>Patronymic</th>
+    <th>Phone</th>
+    <th>E-mail</th>
+    <th>Weight</th>
+    <th>Length</th>
+    <th>Width</th>
+    <th>Height</th>
+    <th>Departure address</th>
+    <th>Arrival address</th>
+    <th><%= link_to 'Distance', :sort => 'distance' %></th>
+    <th><%= link_to 'Price', :sort => 'price' %></th>
+    <th><%= link_to 'Date', :sort => 'created_at' %></th>
+  </tr>
+  <% @orders.each do |order| %>
+    <tr>
+      <td><%= order.name %></td>
+      <td><%= order.s_name %></td>
+      <td><%= order.patronymic %></td>
+      <td><%= order.phone %></td>
+      <td><%= order.email %></td>
+      <td><%= order.weight %></td>
+      <td><%= order.length %></td>
+      <td><%= order.width %></td>
+      <td><%= order.height %></td>
+      <td><%= order.dep_address %></td>
+      <td><%= order.arr_address %></td>
+      <td><%= order.distance %></td>
+      <td><%= order.price %></td>
+      <td><%= order.created_at %></td>
+    </tr>
+  <% end %>
+</table>
+
+<button>
+  <a href="<%= new_order_url(@order) %>">
+    Create New Order
+  </a>
+</button>
