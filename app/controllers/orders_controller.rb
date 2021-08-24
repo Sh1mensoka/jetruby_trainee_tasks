@@ -12,7 +12,7 @@ class OrdersController < ApplicationController
     additional_params = OrderCreator.create_order(order_params, selected_api)
     @order = current_user.orders.build(order_params.merge(additional_params))
     if @order.save
-      redirect_to @order
+      redirect_to action 'index'
     else
       render :new
     end
@@ -20,6 +20,11 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
+  end
+
+  def index
+    params[:sort].nil? ? @orders = Order.where(user: current_user) : 
+                         @orders = Order.where(user: current_user).order(params[:sort])
   end
 
   private
