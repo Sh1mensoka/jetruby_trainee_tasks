@@ -1,14 +1,16 @@
 require_relative '../../lib/order_creator/order_creator'
 
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+
   def new
-    @order = Order.new
+    @order = current_user.orders.build
   end
 
   def create
     selected_api = Api.find_by(status: 1)[:name]
     additional_params = OrderCreator.create_order(order_params, selected_api)
-    @order = Order.new(order_params.merge(additional_params))
+    @order = current_user.orders.build(order_params.merge(additional_params))
     if @order.save
       redirect_to @order
     else
