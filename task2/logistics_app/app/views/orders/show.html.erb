@@ -1,0 +1,33 @@
+<h1><%= "Order № #{@order.id}"%></h1>
+
+<p><h2>Name: </h2><%= @order.name %></p>
+
+<p><h2>Second name: </h2><%= @order.s_name %></p>
+
+<p><h2>Patronymic: </h2><%= @order.patronymic %></p>
+
+<p><h2>Phone number: </h2><%= @order.phone %></p>
+
+<p><h2>E-mail: </h2><%= @order.email %></p>
+
+<p><h2>Weight: </h2><%= @order.weight %></p>
+
+<p><h2>Length: </h2><%= @order.length %></p>
+
+<p><h2>Width: </h2><%= @order.width %></p>
+
+<p><h2>Height: </h2><%= @order.height %></p>
+
+<p><h2>Departure address: </h2><%= @order.dep_address %></p>
+
+<p><h2>Arrival address: </h2><%= @order.arr_address %></p>
+
+<p><h2>Distance: </h2><%= @order.distance %></p>
+
+<p><h2>Price: </h2><%= @order.price %></p>
+
+<button>
+  <a href="<%= new_order_url(@order) %>">
+    Create New Order
+  </a>
+</button>
