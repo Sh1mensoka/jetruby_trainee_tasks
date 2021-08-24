@@ -23,8 +23,8 @@ class OrdersController < ApplicationController
   end
 
   def index
-    params[:sort].nil? ? @orders = Order.where(user: current_user) : 
-                         @orders = Order.where(user: current_user).order(params[:sort])
+    params[:sort].nil? ? @orders = Order.where(user: current_user).page(params[:page]) : 
+                         @orders = Order.where(user: current_user).order(params[:sort]).page(params[:page])
   end
 
   private
