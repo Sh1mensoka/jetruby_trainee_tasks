@@ -37,6 +37,8 @@
   <% end %>
 </table>
 
+<%= paginate @orders %>
+
 <button>
   <a href="<%= new_order_url(@order) %>">
     Create New Order

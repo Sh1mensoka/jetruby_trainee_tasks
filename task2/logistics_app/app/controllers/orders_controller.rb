@@ -19,9 +19,9 @@ class OrdersController < ApplicationController
   end
 
   def index
-    @orders = Order.where(user: current_user)
+    @orders = Order.where(user: current_user).page params[:page]
     unless params[:sort].nil?
-      @orders = Order.where(user: current_user).order(params[:sort])
+      @orders = Order.where(user: current_user).order(params[:sort]).page params[:page]
     end
   end
 
