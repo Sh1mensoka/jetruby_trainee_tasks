@@ -11,6 +11,7 @@ class OrdersController < ApplicationController
     selected_api = Api.find_by(status: 1)[:name]
     additional_params = OrderCreator.create_order(order_params, selected_api)
     @order = current_user.orders.build(order_params.merge(additional_params))
+    @order.accept if @order.may_accept?
     if @order.save
       redirect_to @order
     else
