@@ -22,7 +22,7 @@ class Order < ApplicationRecord
     end
 
     event :cancel do
-      transitions from: [:accepted, :processing], to: :cancelled
+      transitions from: [:waiting, :accepted, :processing], to: :cancelled
     end
   end
   
