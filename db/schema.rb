@@ -10,8 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-
-ActiveRecord::Schema.define(version: 2021_08_23_113547) do
+ActiveRecord::Schema.define(version: 2021_08_31_081508) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -41,10 +40,10 @@ ActiveRecord::Schema.define(version: 2021_08_23_113547) do
     t.index ["email"], name: "index_admin_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true
   end
-  
+
   create_table "apis", force: :cascade do |t|
     t.string "name"
-    t.boolean "status"
+    t.boolean "is_on"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -63,9 +62,9 @@ ActiveRecord::Schema.define(version: 2021_08_23_113547) do
     t.string "arr_address"
     t.decimal "distance"
     t.decimal "price"
-    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "user_id", null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
