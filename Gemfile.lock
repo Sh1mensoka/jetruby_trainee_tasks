@@ -307,6 +307,7 @@ DEPENDENCIES
   carrierwave (~> 2.0)
   devise
   jbuilder (~> 2.7)
+  kaminari
   listen (~> 3.3)
   pg (~> 1.1)
   puma (~> 5.0)

@@ -3,6 +3,7 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.7.2'
 
+gem 'kaminari'
 gem 'carrierwave', '~> 2.0'
 gem 'devise'
 gem 'activeadmin'

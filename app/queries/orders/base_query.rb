@@ -1,11 +1,7 @@
 module Orders
   class BaseQuery < BaseQuery
     def base_relation
-      @relation ||= current_user.orders
-    end
-
-    def execute
-      relation
+      current_user.orders
     end
   end
 end
