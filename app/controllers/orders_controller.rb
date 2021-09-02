@@ -8,11 +8,11 @@ class OrdersController < ApplicationController
   end
 
   def create
-    selected_api = Api.find_by(status: 1)[:name]
-    additional_params = OrderCreator.create_order(order_params, selected_api)
+    selected_api = Api.find_by(is_on: 1)[:name]
+    additional_params = OrderCreator.create_order(order_params.merge(selected_api: selected_api))
     @order = current_user.orders.build(order_params.merge(additional_params))
     if @order.save
-      redirect_to action 'index'
+      redirect_to action: 'index'
     else
       render :new
     end
@@ -23,8 +23,7 @@ class OrdersController < ApplicationController
   end
 
   def index
-    params[:sort].nil? ? @orders = Order.where(user: current_user).page(params[:page]) : 
-                         @orders = Order.where(user: current_user).order(params[:sort]).page(params[:page])
+    @orders = Orders::GridQuery.call(params.merge(current_user: current_user)).page(params[:page])
   end
 
   private

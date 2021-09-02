@@ -5,11 +5,12 @@ require_relative './api_files/bing_calculator'
 require_relative './api_files/distancematrix_calculator'
 
 class OrderCreator
-  def self.create_order(params, api_type)
-    return unless Module.const_get(api_type).is_a?(Class)
-    distance = DistanceCalculatorProxy.calculate_distance(Kernel.const_get(api_type).new(params[:dep_address],
-                                                                                         params[:arr_address]
-                                                                                        ))
+  def self.create_order(params)
+    return unless Module.const_get(params[:selected_api]).is_a?(Class)
+    calculator = Kernel.const_get(params[:selected_api]).new(params[:dep_address],
+                                                             params[:arr_address]
+                                                            )
+    distance = DistanceCalculatorProxy.calculate_distance(calculator)
     {weight: params[:weight].to_f, 
      length: params[:length].to_f, 
      width: params[:width].to_f, 
