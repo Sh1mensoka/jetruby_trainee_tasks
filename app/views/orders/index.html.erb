@@ -2,20 +2,39 @@
 
 <table>
   <tr>
-  	<th>Name</th>
-  	<th>Second name</th>
-  	<th>Patronymic</th>
-  	<th>Phone</th>
-  	<th>E-mail</th>
-  	<th>Weight</th>
-  	<th>Length</th>
-  	<th>Width</th>
-  	<th>Height</th>
-  	<th>Departure address</th>
-  	<th>Arrival address</th>
-  	<th><%= link_to 'Distance', :sort => 'distance' %></th>
-    <th><%= link_to 'Price', :sort => 'price' %></th>
-    <th><%= link_to 'Date', :sort => 'created_at' %></th>
+    <th>Name</th>
+    <th>Second name</th>
+    <th>Patronymic</th>
+    <th>Phone</th>
+    <th>E-mail</th>
+    <th>Weight</th>
+    <th>Length</th>
+    <th>Width</th>
+    <th>Height</th>
+    <th>Departure address</th>
+    <th>Arrival address</th>
+    <th><%= button_to 'Distance', {controller: 'orders', 
+                                   method: 'index'
+                                  }, method: 'get', params: {sort: 'distance', 
+                                                             orders_per_page: params[:orders_per_page]
+                                                            } 
+        %>
+    </th>
+    <th><%= button_to 'Price', {controller: 'orders', 
+                                method: 'index'
+                               }, method: 'get', params: {sort: 'price', 
+                                                          orders_per_page: params[:orders_per_page]
+                                                         } 
+        %>
+    </th>
+    <th><%= button_to 'Date', {controller: 'orders', 
+                               method: 'index'
+                              }, method: 'get', params: {sort: 'created_at', 
+                                                         orders_per_page: params[:orders_per_page]
+                                                        } 
+        %>
+    </th>
+    <th>Status</th>
   </tr>
   <% @orders.each do |order| %>
     <tr>
@@ -33,9 +52,22 @@
       <td><%= order.distance %></td>
       <td><%= order.price %></td>
       <td><%= order.created_at %></td>
+      <td><%= order.status %></td>
     </tr>
   <% end %>
 </table>
+
+<%= form_with method: 'get' do |form| %>
+  <%= select_tag("orders_per_page", options_for_select([['25', 25],
+                                                        ['50', 50],
+                                                        ['100', 100]
+                                                       ], 
+                                                       selected: params[:orders_per_page] || nil
+                                                      )) %>                                               
+  <%= submit_tag 'Select', name: nil %>
+<% end %>
+
+<%= paginate @orders %>
 
 <button>
   <a href="<%= new_order_url(@order) %>">

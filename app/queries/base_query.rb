@@ -11,15 +11,22 @@ class BaseQuery
   end
 
   def call
-    base_relation
+    execute_defaults
     execute
+    relation
   end
 
   def base_relation
-    raise NotImplementedError, "#{self.class} doesn't implement #{__method__} method"
+    raise "#{self.class} doesn't have #{__method__} method"
   end
 
   def execute
-    raise NotImplementedError, "#{self.class} doesn't implement #{__method__} method"
+  end
+
+  def execute_defaults
+  end
+
+  def relation
+    @relation ||= base_relation
   end
 end
