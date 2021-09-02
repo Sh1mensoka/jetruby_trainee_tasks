@@ -16,6 +16,7 @@
   	<th><%= link_to 'Distance', :sort => 'distance' %></th>
     <th><%= link_to 'Price', :sort => 'price' %></th>
     <th><%= link_to 'Date', :sort => 'created_at' %></th>
+    <th>Status</th>
   </tr>
   <% @orders.each do |order| %>
     <tr>
@@ -33,6 +34,7 @@
       <td><%= order.distance %></td>
       <td><%= order.price %></td>
       <td><%= order.created_at %></td>
+      <td><%= order.status %></td>
     </tr>
   <% end %>
 </table>
