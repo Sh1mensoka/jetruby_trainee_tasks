@@ -38,6 +38,7 @@ class OrdersController < ApplicationController
                                     :width,
                                     :height,
                                     :dep_address,
-                                    :arr_address)
+                                    :arr_address,
+                                    :status)
     end
 end
