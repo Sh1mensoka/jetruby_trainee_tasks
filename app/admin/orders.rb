@@ -1,35 +1,28 @@
 ActiveAdmin.register Order do
-  batch_action :set_status_to_accepted do |ids|
-    batch_action_collection.find(ids).each do |order|
-      order.update(status: 'accepted')
-    end
-    redirect_to collection_path
-  end
-
   batch_action :set_status_to_processing do |ids|
     batch_action_collection.find(ids).each do |order|
-      order.update(status: 'processing')
+      order.process!
     end
     redirect_to collection_path
   end 
 
   batch_action :set_status_to_sent do |ids|
     batch_action_collection.find(ids).each do |order|
-      order.update(status: 'sent')
+      order.deliver!
     end
     redirect_to collection_path
   end  
 
   batch_action :set_status_to_delivered do |ids|
     batch_action_collection.find(ids).each do |order|
-      order.update(status: 'delivered')
+      order.confirm_delivery!
     end
     redirect_to collection_path
   end  
 
   batch_action :set_status_to_cancelled do |ids|
     batch_action_collection.find(ids).each do |order|
-      order.update(status: 'cancelled')
+      order.cancel!
     end
     redirect_to collection_path
   end  

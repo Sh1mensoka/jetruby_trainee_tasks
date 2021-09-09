@@ -10,8 +10,8 @@ class OrdersController < ApplicationController
   def create
     selected_api = Api.find_by(is_on: true)[:name]
     additional_params = OrderCreator.create_order(order_params.merge(selected_api: selected_api))
-    @order = current_user.orders.build(order_params.merge(additional_params))
-    if @order.save
+    @order = current_user.orders.create(order_params.merge(additional_params))
+    if @order.save 
       redirect_to action: 'index'
     else
       render :new
