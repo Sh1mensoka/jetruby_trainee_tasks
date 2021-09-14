@@ -24,6 +24,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Orders::GridQuery.call(params.merge(current_user: current_user))
+    @operators = Users::BaseQuery.call(params.merge(current_user: current_user))
   end
 
   private
