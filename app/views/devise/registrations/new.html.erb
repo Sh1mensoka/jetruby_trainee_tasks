@@ -26,6 +26,16 @@
     <%= f.file_field :avatar %>
   </div>
 
+  <div class="field">
+    <%= f.label :role %>
+    <%= f.select(:role, options_for_select([['Operator', 'operator'], ['Organisation Admin', 'org_admin']])) %>
+  </div>
+
+  <div class="field">
+    <%= f.label :organisation %>
+    <%= f.select(:organisation_id, options_from_collection_for_select(@organisations, :id, :name)) %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>
