@@ -1,0 +1,9 @@
+<%= form_with method: 'get' do |form| %>
+  Operator
+  <%= hidden_field_tag(:sort, params[:sort]) if params[:sort].present? %>
+  <%= hidden_field_tag(:items_per_page, params[:items_per_page]) if params[:items_per_page].present? %>
+  <%= select_tag "operator", options_for_select([['All','']] + @operators.collect { |operator| [operator.email, operator.id]}, 
+                                                selected: params[:operator] || nil
+                                               ) %>
+  <%= submit_tag 'Select', name: nil %>
+<% end %>

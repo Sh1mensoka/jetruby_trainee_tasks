@@ -15,27 +15,24 @@
     <th>Height</th>
     <th>Departure address</th>
     <th>Arrival address</th>
-    <th><%= button_to 'Distance', {controller: 'orders', 
-                                   method: 'index'
-                                  }, method: 'get', params: {sort: 'distance', 
-                                                             orders_per_page: params[:orders_per_page]
-                                                            } 
-        %>
-    </th>
-    <th><%= button_to 'Price', {controller: 'orders', 
-                                method: 'index'
-                               }, method: 'get', params: {sort: 'price', 
-                                                          orders_per_page: params[:orders_per_page]
-                                                         } 
-        %>
-    </th>
-    <th><%= button_to 'Date', {controller: 'orders', 
-                               method: 'index'
-                              }, method: 'get', params: {sort: 'created_at', 
-                                                         orders_per_page: params[:orders_per_page]
-                                                        } 
-        %>
-    </th>
+    <%= form_with method: 'get' do |form| %>
+      <%= hidden_field_tag(:items_per_page, params[:items_per_page]) if params[:items_per_page].present? %>
+      <%= hidden_field_tag(:operator, params[:operator]) if params[:operator].present? %>
+      <%= hidden_field_tag(:sort, 'distance') %>
+      <th><%= submit_tag 'Distance', name: nil %></th>
+    <% end %>
+    <%= form_with method: 'get' do |form| %>
+      <%= hidden_field_tag(:items_per_page, params[:items_per_page]) if params[:items_per_page].present? %>
+      <%= hidden_field_tag(:operator, params[:operator]) if params[:operator].present? %>
+      <%= hidden_field_tag(:sort, 'price') %>
+      <th><%= submit_tag 'Price', name: nil %></th>
+    <% end %>
+    <%= form_with method: 'get' do |form| %>
+      <%= hidden_field_tag(:items_per_page, params[:items_per_page]) if params[:items_per_page].present? %>
+      <%= hidden_field_tag(:operator, params[:operator]) if params[:operator].present? %>
+      <%= hidden_field_tag(:sort, 'created_at') %>
+      <th><%= submit_tag 'Date', name: nil %></th>
+    <% end %>
     <th>Status</th>
   </tr>
   <% @orders.each do |order| %>
@@ -60,14 +57,19 @@
 </table>
 
 <%= form_with method: 'get' do |form| %>
-  <%= select_tag("orders_per_page", options_for_select([['25', 25],
+  Orders per page
+  <%= hidden_field_tag(:sort, params[:sort]) if params[:sort].present? %>
+  <%= hidden_field_tag(:operator, params[:operator]) if params[:operator].present? %>
+  <%= select_tag("items_per_page", options_for_select([['25', 25],
                                                         ['50', 50],
                                                         ['100', 100]
-                                                       ], 
-                                                       selected: params[:orders_per_page] || nil
-                                                      )) %>                                               
+                                                       ],
+                                                       selected: params[:items_per_page] || nil
+                                                      )) %>
   <%= submit_tag 'Select', name: nil %>
 <% end %>
+
+<%= render "orders/shared/select_operator" if current_user.admin? %>
 
 <%= paginate @orders %>
 
